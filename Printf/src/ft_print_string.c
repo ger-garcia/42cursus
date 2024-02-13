@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 18:37:31 by gergarci          #+#    #+#             */
-/*   Updated: 2024/02/02 19:24:14 by gergarci         ###   ########.fr       */
+/*   Created: 2024/02/13 12:41:52 by gergarci          #+#    #+#             */
+/*   Updated: 2024/02/13 12:42:24 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stddef.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <ctype.h>
-# include "./src/libft.h"
+void	ft_print_string(char *str, int *ch_print)
+{
+    size_t  len;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+    if (!str)
+    {
+        write(1, "(null)", 6);
+        *ch_print += 6;
+    }
+    else if (str)
+        ft_write_pstr(str, ft_strlen(str), ch_print);
+}

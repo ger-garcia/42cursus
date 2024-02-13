@@ -12,76 +12,57 @@
 
 #include "printf.h"
 
+static void	ft_check_mod(char mod, va_list args, int *ch_print)
+{
+	if (mod == 'c')
+		ft_print_char(va_arg(args, int), ch_print);
+	else if (mod == 's')
+		ft_print_string(va_arg(args, char *),  ch_print);
+	else if (mod == '%')
+		*ch_print += write(1, "%", 1);
+	else if (mod == 'd' || mod == 'i')
+		ft_print_dec(va_arg(args, int), ch_print);
+	/*else if (mod == 'u')
+		ft_print_unsint(va_arg(args, int), ch_print);
+	else if (mod == 'x' || mod == 'X')
+		ft_print_hex(va_arg(args, int), mod, ch_print);
+	else if (mod == 'p')
+		ft_print_ptr(va_arg(args, int), ch_print);*/
+}
+
+
 int	ft_printf(const char *str, ...)
 {
-	int		*chrs_print;
-	va_list	lst_args; //variable que nos permite recorrer la variadica
+	int		ch_print;
+	va_list	lst_args;
 	
-	va_start(lst_args, str); //le anadimos la variable listable y la fija (str)
-	chrs_print[0] = 0;
-
-	while (*str != '\0')
+	va_start(lst_args, str);
+	ch_print = 0;
+	while (*str != '\0' && ch_print >= 0)
 	{
 		if (*str != '%')
 		{
 			ft_putchar_fd(*str, 1);
-			chrs_print[0]++;
-			printf("%d",chrs_print[0]);
+			ch_print++;
 		}
 		else
 		{
 			if (ft_strchr("cspdiuxX%", *(str + 1)))
 			{
-				//ft_check(*(str + 1),lst_args);
-				if (*(str + 1) == 'c')
-				{
-					chrs_print[0] += (va_arg(lst_args, int), 1);
-					str++;
-				}
-				else if (*(str + 1) == 's')
-				{
-					chrs_print[0] += ft_putstr_fd(va_arg(lst_args, char *), 1);
-				}
-				// else if (*(str + 1) == 'p'){}
-				// else if (*(str + 1) == 'd'){}
-				// else if (*(str + 1) == 'i'){}
-				// else if (*(str + 1) == 'u'){}
-				// else if (*(str + 1) == 'x'){}
-				// else if (*(str + 1) == 'X'){}
-				else if (*(str + 1) == '%')
-					ft_putchar_fd('%', 1);
-					str++;
-			}
-			else
-			{
-				va_end(lst_args);
-				return (chrs_print[0]); //Anade sino break
+				ft_check_mod(*(str + 1), lst_args, &ch_print);
+				str++;
 			}
 		}
-		str++;
+		if (*str != '\0')
+			str++;
 	}
 	va_end(lst_args);
-	return (chrs_print[0]);
+	return (ch_print);
 }
-
-
-
-/*FUNCION QUE MIRE QUE COMANDO ES
-	va_arg(parametros, char *); //string
-	va_arg(parametros, char); //un caracter
-	va_arg(parametros, int); //un entero
-	va_arg(parametros,
-
-	proteger los write, los fuckin leaks*/
 
 int	main(void)
 {
-	//int	cc;
-	//char e = 'e';
-	//unsigned int custom = -25;
-	//char *string = "Texto variado.";
-	printf("\n%d",ft_printf("hola%s ue tal\n", (char *)NULL), "prueba");
-	printf("\n%d",printf("hola%s ue tal\n", (char *)NULL), "prueba");
-	//printf("\n%u",custom);
+	printf("%d\n",ft_printf("Hola que tal %s\n", (char *)NULL));
+	printf("%d\n",printf("Hola que tal %s\n", (char *)NULL));
 	return (0);
 }

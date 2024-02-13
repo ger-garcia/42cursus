@@ -25,7 +25,16 @@ SRCS = $(addprefix $(SRC_DIR),$(SRCS_PRINTF))
 
 LIBFT_DIR 	= ./src/
 
-SRCS_LIBFT = ft_print_char.c ft_write_pstr.c ft_putchar_fd.c ft_putnbr_fd.c ft_strchr.c ft_putendl_fd.c	ft_putstr_fd.c	ft_strlen.c
+SRCS_LIBFT = ft_print_char.c \
+			 ft_write_pstr.c \
+			 ft_putchar_fd.c \
+			 ft_putnbr_fd.c \
+			 ft_strchr.c \
+			 ft_putendl_fd.c \
+			 ft_putstr_fd.c	\
+			 ft_strlen.c \
+			 ft_write_pstr.c \
+			 ft_print_string.c
 
 L_SRCS	= $(addprefix $(LIBFT_DIR), $(SRCS_LIBFT))
 

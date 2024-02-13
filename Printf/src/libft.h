@@ -28,5 +28,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_write_pstr(char *c, int len, int *ch_print);
 void	ft_print_char(char c, int *ch_print);
+void	ft_print_string(char *str, int *ch_print);
 
 #endif

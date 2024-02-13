@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_print_dec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 18:37:31 by gergarci          #+#    #+#             */
-/*   Updated: 2024/02/02 19:24:14 by gergarci         ###   ########.fr       */
+/*   Created: 2024/02/13 17:13:51 by gergarci          #+#    #+#             */
+/*   Updated: 2024/02/13 17:14:10 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stddef.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <ctype.h>
-# include "./src/libft.h"
-
-int	ft_printf(const char *str, ...);
-
-#endif
+#include "libft.h"
