@@ -30,6 +30,12 @@ static void	ft_check_mod(char mod, va_list args, int *ch_print)
 		ft_print_ptr(va_arg(args, int), ch_print);*/
 }
 
+/*	else if (c == 'p')
+	{
+		*printres += write(1, "0x", 2);
+		print_ptr(va_arg(pargs, unsigned long), printres);
+	}
+*/
 
 int	ft_printf(const char *str, ...)
 {

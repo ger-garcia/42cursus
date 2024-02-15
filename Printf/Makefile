@@ -34,7 +34,8 @@ SRCS_LIBFT = ft_print_char.c \
 			 ft_putstr_fd.c	\
 			 ft_strlen.c \
 			 ft_write_pstr.c \
-			 ft_print_string.c
+			 ft_print_string.c \
+			 ft_print_dec.c
 
 L_SRCS	= $(addprefix $(LIBFT_DIR), $(SRCS_LIBFT))
 
