@@ -17,14 +17,14 @@ static void	ft_check_mod(char mod, va_list args, int *ch_print)
 	if (mod == 'c')
 		ft_print_char(va_arg(args, int), ch_print);
 	else if (mod == 's')
-		ft_print_string(va_arg(args, char *),  ch_print);
+		ft_print_string(va_arg(args, char *), ch_print);
 	else if (mod == '%')
 		*ch_print += write(1, "%", 1);
 	else if (mod == 'd' || mod == 'i')
-		ft_print_dec(va_arg(args, int), ch_print);
-	/*else if (mod == 'u')
-		ft_print_unsint(va_arg(args, int), ch_print);
-	else if (mod == 'x' || mod == 'X')
+		ft_print_num(va_arg(args, int), ch_print, 0);
+	else if (mod == 'u')
+		ft_print_num(va_arg(args, int), ch_print, 1);
+	/*else if (mod == 'x' || mod == 'X')
 		ft_print_hex(va_arg(args, int), mod, ch_print);
 	else if (mod == 'p')
 		ft_print_ptr(va_arg(args, int), ch_print);*/
@@ -41,7 +41,7 @@ int	ft_printf(const char *str, ...)
 {
 	int		ch_print;
 	va_list	lst_args;
-	
+
 	va_start(lst_args, str);
 	ch_print = 0;
 	while (*str != '\0' && ch_print >= 0)
@@ -68,7 +68,7 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	printf("%d\n",ft_printf("Hola que tal %s\n", (char *)NULL));
-	printf("%d\n",printf("Hola que tal %s\n", (char *)NULL));
+	printf("%d\n", ft_printf("Hola que tal %u\n", -25888));
+	printf("%d\n", printf("Hola que tal %u\n", -25888));
 	return (0);
 }

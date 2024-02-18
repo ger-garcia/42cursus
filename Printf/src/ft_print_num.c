@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_dec.c                                     :+:      :+:    :+:   */
+/*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,52 +12,50 @@
 
 #include "libft.h"
 
-void    ft_print_dec(long num_in, int *chprint)
+static int	count_dig(long n)
 {
-    char *num_out;
-    int i;
+	int	count;
 
-    num_in
-    if (num_in < 0 && num_in > -2147483648)
-
+	count = 0;
+	if (n <= 9 && n >= 0)
+		return (1);
+	else if (n < 0)
+	{
+		count++;
+		n *= -1;
+	}
+	while (n != 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }
 
-
-/*static void	print_num(int nb2, int fd2)
-{+
-	int		nums[10];
+int	ft_print_num(long num_in, int *ch_print, int is_uni)
+{
+	char	*num_out;
 	int		i;
-	char	printable;
+	int		len;
 
-	i = 0;
-	while (nb2 > 0)
+	if (is_uni)
+		num_in = (unsigned int) num_in;
+	len = count_dig(num_in);
+	num_out = (char *) malloc(sizeof(char) * len);
+	if (!num_out)
+		return (*ch_print = -1);
+	i = len - 1;
+	if (num_in < 0)
 	{
-		nums[i] = nb2 % 10;
-		nb2 = nb2 / 10;
-		i++;
+		num_out[0] = '-';
+		num_in *= -1;
 	}
-	i--;
-	while (i >= 0)
+	while (num_in > 0)
 	{
-		printable = nums[i] + 48;
-		write(fd2, &printable, 1);
+		num_out[i] = (num_in % 10) + '0';
+		num_in = num_in / 10;
 		i--;
 	}
+	ft_write_pstr(num_out, len, ch_print);
+	return (0);
 }
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n < 0 && n > -2147483648)
-	{
-		write(fd, "-", 1);
-		print_num(n * -1, fd);
-	}
-	else if (n > 0 && n <= 2147483647)
-		print_num(n, fd);
-	else if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-	}
-	else
-		write(fd, "0", 1);
-}*/

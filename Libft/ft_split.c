@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: gergarci <gergarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:58:50 by gergarci          #+#    #+#             */
-/*   Updated: 2024/01/26 20:23:51 by gergarci         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:22:44 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,9 @@ static char	*ft_word_arrange(char const *str, char c, const char **pos)
 {
 	char	*newword;
 	size_t	len_nword;
-	size_t	i_nword;
 	size_t	i;
 
 	len_nword = 0;
-	i_nword = 0;
 	i = 0;
 	while (str[i] == c)
 		i++;

@@ -14,13 +14,11 @@
 
 void	ft_print_string(char *str, int *ch_print)
 {
-    size_t  len;
-
-    if (!str)
-    {
-        write(1, "(null)", 6);
-        *ch_print += 6;
-    }
-    else if (str)
-        ft_write_pstr(str, ft_strlen(str), ch_print);
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		*ch_print += 6;
+	}
+	else if (str)
+		ft_write_pstr(str, ft_strlen(str), ch_print);
 }

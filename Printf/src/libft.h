@@ -29,6 +29,6 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_write_pstr(char *c, int len, int *ch_print);
 void	ft_print_char(char c, int *ch_print);
 void	ft_print_string(char *str, int *ch_print);
-void    ft_print_dec(long num_in, int *chprint);
+int		ft_print_num(long num_in, int *ch_print, int is_uni);
 
 #endif
