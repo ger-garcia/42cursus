@@ -1,0 +1,7 @@
+Esto es la primera linea y es un texto de prueba.
+No tiene DOS ni nada de especial, solo juntamos todo... Y lo que salga.
+Es un trestistrestigretest con un texto tipo lorem ipsum y ya pa luego hola mundo.
+Esto sirve incluso para la cuarta sinfonia de Mozart (si tiene) o pa la lista de la compra:
+-Aguacate (muy caro)
+-Colacao
+-Cosas varias

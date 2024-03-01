@@ -1,0 +1,1 @@
+Hola mundo que tal escribo este texto en forma de texto para probar un tipo de ocurrencia en cuanto a la aplicacion de getnextline. Y es, sin duda, escribir una linea larga sin saltos de linea... Por lo visto, tambien sin acentos. Y dicho esto, chao.
