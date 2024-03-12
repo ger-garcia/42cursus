@@ -30,6 +30,5 @@ void	*ft_calloc(size_t count, size_t size)
         howfull--;
         memotmp++;
     }
-	ft_bzero(memo, howfull);
 	return (memo);
 }
