@@ -21,10 +21,10 @@ static char *read_from_file(int fd)
     static int count = 1;
 
     printf("ft_calloc#[%d]---", count++);
-    cup_buffer = ft_calloc(3 + 1, sizeof(char));
+    cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
     if (cup_buffer == NULL)
         return (NULL);
-    bytes_read = read(fd, cup_buffer, 3);
+    bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
     if (bytes_read <= 0)
         return (free(cup_buffer), NULL);
     return (cup_buffer);
