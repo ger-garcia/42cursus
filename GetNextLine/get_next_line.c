@@ -12,6 +12,22 @@
 
 #include "get_next_line.h"
 
+// Function to convert and print the newline character as ? 
+
+void    print_newline_helper(char *buffer)
+{
+
+    while (*buffer &&  *buffer != '\0')
+    {
+        if (*buffer == '\n') 
+        {
+            *buffer= '#';
+        }
+        printf("%c",*buffer);
+        buffer++;
+    }
+}
+
 // Function to read data from the file and append it to partial content.
 
 static char *read_from_file(int fd)
@@ -25,6 +41,7 @@ static char *read_from_file(int fd)
     if (cup_buffer == NULL)
         return (NULL);
     bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
+    print_newline_helper(cup_buffer);
     if (bytes_read <= 0)
         return (free(cup_buffer), NULL);
     return (cup_buffer);
