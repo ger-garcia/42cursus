@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 21:08:45 by gergarci          #+#    #+#             */
-/*   Updated: 2024/05/13 19:13:15 by gergarci         ###   ########.fr       */
+/*   Created: 2024/05/13 19:28:15 by gergarci          #+#    #+#             */
+/*   Updated: 2024/05/13 19:48:09 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*append_buffer(char *big_buffer, char *read_buffer)
 {
@@ -102,29 +102,29 @@ char	*read_from_file(char *big_buffer, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*big_buffer;
+	static char	*big_buffer[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
-		return (free(big_buffer), big_buffer = NULL);
-	if (!big_buffer)
-		big_buffer = ft_calloc(1, sizeof(char));
-	if (!big_buffer)
+	if (fd < 0 || read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
+		return (free(big_buffer[fd]), big_buffer[fd] = NULL);
+	if (!big_buffer[fd])
+		big_buffer[fd] = ft_calloc(1, sizeof(char));
+	if (!big_buffer[fd])
 		return (NULL);
-	if (!ft_strchr(big_buffer, '\n'))
-		big_buffer = read_from_file(big_buffer, fd);
-	if (!big_buffer || big_buffer[0] == '\0')
-		return (free(big_buffer), big_buffer = NULL);
-	line = extract_line(big_buffer);
+	if (!ft_strchr(big_buffer[fd], '\n'))
+		big_buffer[fd] = read_from_file(big_buffer[fd], fd);
+	if (!big_buffer[fd] || big_buffer[fd][0] == '\0')
+		return (free(big_buffer[fd]), big_buffer[fd] = NULL);
+	line = extract_line(big_buffer[fd]);
 	if (!line)
-		return (free(big_buffer), big_buffer = NULL);
-	big_buffer = obtain_remaining(big_buffer);
-	if (!big_buffer)
+		return (free(big_buffer[fd]), big_buffer[fd] = NULL);
+	big_buffer[fd] = obtain_remaining(big_buffer[fd]);
+	if (!big_buffer[fd])
 		return (free(line), NULL);
-	if (big_buffer[0] == '\0')
+	if (big_buffer[fd][0] == '\0')
 	{
-		free(big_buffer);
-		big_buffer = NULL;
+		free(big_buffer[fd]);
+		big_buffer[fd] = NULL;
 	}
 	return (line);
 }

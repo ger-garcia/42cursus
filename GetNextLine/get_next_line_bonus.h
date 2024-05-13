@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 21:10:33 by gergarci          #+#    #+#             */
-/*   Updated: 2024/05/13 19:19:20 by gergarci         ###   ########.fr       */
+/*   Created: 2024/05/13 19:26:15 by gergarci          #+#    #+#             */
+/*   Updated: 2024/05/13 19:26:22 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdarg.h>
 # include <limits.h>
