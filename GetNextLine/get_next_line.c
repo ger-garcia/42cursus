@@ -6,7 +6,7 @@
 /*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 21:08:45 by gergarci          #+#    #+#             */
-/*   Updated: 2024/05/13 19:13:15 by gergarci         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:56:51 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*obtain_remaining(char *big_buffer)
 		big_buffer++;
 	if (*big_buffer == '\n')
 		big_buffer++;
-	leni = strlen(big_buffer);
+	leni = ft_strlen(big_buffer);
 	new_bigbuffer = ft_calloc(sizeof(char), leni + 1);
 	if (!new_bigbuffer)
 		return (free(og_bigbuffer), NULL);
