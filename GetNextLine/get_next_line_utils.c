@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gergarci <gergarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: gergarci <gergarci@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 21:09:50 by gergarci          #+#    #+#             */
-/*   Updated: 2024/05/13 19:16:44 by gergarci         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:55:35 by gergarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
